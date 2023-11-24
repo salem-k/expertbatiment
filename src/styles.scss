@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+.icon{
+    width: 32px;
+    height: 12px;
+    position: relative;
+    left: 7px;
+    top: 2px;
+}
+body{
+    background-color: #161616;
+    color: white;
+}
+table{
+    background-color: black;
+}
+.label{
+    width: auto;
+    position: relative;
+    left: -13px;
+    font-size: 11px;
+}
+.row button{
+    background: black;
+    color: white;
+    border: solid 1px green;
+    border-radius: 30px;
+}
+.icon-button{
+    width: 16px;
+    height: 16px;
+}
+
+ngb-datepicker{
+    top:50px!important;
+    transform:none!important;
+    
+}

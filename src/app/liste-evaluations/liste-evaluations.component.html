@@ -1,0 +1,100 @@
+<p>liste-evaluations works!</p>
+<div class="container">
+            <div class="row table-header1" >
+                <img class="icon" src="assets/icons/back-arrow.png" />
+                <span class="label">Retour</span>
+            </div>
+
+            <div class="row table-header2">
+                <h1>Vos èvalutations <sup style="font-size: 17px;">(30)</sup></h1>
+                <button class="filtrer" (click)="filtrer()">
+                    <img  class="icon-button" src="assets/icons/sliders2-vertical.png" />
+                    Filtrer
+                </button>
+                <button class="ajouter-evalutation">
+                    Ajouter une èvolution
+                </button>
+                
+            </div>
+            <div class="row table-header2">
+                <ul class="nav nav-underline">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">En cours (16)</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Passées (5)</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="card" *ngFor="let evalutation of evaluations">
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                {{evalutation.col1[0]}}<br>
+                                <span *ngIf="evalutation.col1[1] != 100" class="badge text-bg-secondary">{{evalutation.col1[1]}}%</span>
+                                <span *ngIf="evalutation.col1[1] == 100" class="badge text-bg-success">Complétées</span>
+
+                            </td>
+                            <td>
+                                {{evalutation.col2[0]}}<br>
+                                {{evalutation.col2[1]}}
+                            </td>
+                            <td>
+                                {{evalutation.col3[0]}}<br>
+                                {{evalutation.col3[1]}}
+                            </td>
+                            <td>
+                                {{evalutation.col4[0]}}<br>
+                                {{evalutation.col4[1]}}
+                            </td>
+                            <td>
+                                <img  class="icon-button eye-fill" src="assets/icons/eye-fill.png" />  
+                                <img  class="icon-button" src="assets/icons/three-dots-vertical.png" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+              </div>
+
+</div>
+
+<div  *ngIf="afficherFiltres" class="bgFiltrer"></div>
+<div class="filtres row" *ngIf="afficherFiltres">
+    <div class="title-filtres">
+        <h2>Filtrer</h2>
+    </div>
+    <div>
+        <button class="filtrer">
+            <img  class="icon-button" src="assets/icons/sliders2-vertical.png" />
+            Filtrer
+        </button>
+        <button class="ajouter-evalutation">
+            Ajouter une èvolution
+        </button>
+    </div>
+    <div class="box-container1">
+        <div class="box-container2">
+            <label class="box-title">Date de dèbut</label>
+            <form class="row row-cols-sm-auto">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input
+                            class="form-control"
+                            placeholder="yyyy-mm-dd"
+                            name="dp"
+                            [(ngModel)]="dateDebutFiltre"
+                            ngbDatepicker
+                            #d="ngbDatepicker"
+                            style="display:none"
+                        />
+                        {{ dateDebutFiltre | json }}
+                        <img src="assets/icons/calendar.png" class="icon-button calendar-button"  (click)="d.toggle()" />
+                        
+                    </div>
+                </div>
+            </form>
+        
+        </div>
+    </div>
+</div>
