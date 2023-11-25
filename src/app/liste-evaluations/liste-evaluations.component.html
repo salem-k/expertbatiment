@@ -1,5 +1,6 @@
 <p>liste-evaluations works!</p>
 <div class="container">
+    
             <div class="row table-header1" >
                 <img class="icon" src="assets/icons/back-arrow.png" />
                 <span class="label">Retour</span>
@@ -59,18 +60,19 @@
 
 </div>
 
-<div  *ngIf="afficherFiltres" class="bgFiltrer"></div>
+<div  *ngIf="afficherFiltres" class="bgFiltrer" (click)="filtrer()"></div>
 <div class="filtres row" *ngIf="afficherFiltres">
+    <img class="close-button" src="assets/icons/x.png" (click)="filtrer()" />
     <div class="title-filtres">
         <h2>Filtrer</h2>
     </div>
     <div>
         <button class="filtrer">
-            <img  class="icon-button" src="assets/icons/sliders2-vertical.png" />
-            Filtrer
+            
+            En cours
         </button>
-        <button class="ajouter-evalutation">
-            Ajouter une èvolution
+        <button class="termine">
+            Terminée
         </button>
     </div>
     <div class="box-container1">
@@ -78,7 +80,7 @@
             <label class="box-title">Date de dèbut</label>
             <form class="row row-cols-sm-auto">
                 <div class="col-12">
-                    <div class="input-group">
+                    <div>
                         <input
                             class="form-control"
                             placeholder="yyyy-mm-dd"
@@ -88,13 +90,53 @@
                             #d="ngbDatepicker"
                             style="display:none"
                         />
-                        {{ dateDebutFiltre | json }}
                         <img src="assets/icons/calendar.png" class="icon-button calendar-button"  (click)="d.toggle()" />
-                        
                     </div>
+                    <span class="span-date">
+                    {{ dateDebutFiltre.month }}/{{ dateDebutFiltre.day }}/{{ dateDebutFiltre.year }}
+                    </span>
                 </div>
             </form>
-        
         </div>
     </div>
+    <div class="box-container1">
+        <div class="box-container2">
+            <label class="box-title">Date de fin</label>
+            <form class="row row-cols-sm-auto">
+                <div class="col-12">
+                    <div>
+                        <input
+                            class="form-control"
+                            placeholder="yyyy-mm-dd"
+                            name="dp"
+                            [(ngModel)]="dateFinFiltre"
+                            ngbDatepicker
+                            #d1="ngbDatepicker"
+                            style="display:none"
+                        />
+                        <img src="assets/icons/calendar.png" class="icon-button calendar-button"  (click)="d1.toggle()" />
+                    </div>
+                    <span class="span-date">
+                    {{ dateFinFiltre.month }}/{{ dateFinFiltre.day }}/{{ dateDebutFiltre.year }}
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="box-container3">
+        <div class="box-container2">
+            <label class="box-title">Mot clé</label>
+            
+                <div class="row">
+                    <input class="mot-cle" />
+                    <img src="assets/icons/info-circle.png" class="icon-button calendar-button icon-info" />
+                </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <button class="appliquer">Appliquer</button>
+    </div>
+    
 </div>

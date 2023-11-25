@@ -90,8 +90,8 @@ h1{
     display: block;
 }
 .box-container1{
-    width: 40%;
-    
+    width: 43%;
+    float: left;
     padding-top: 12px;
     position: relative;
     display: block;
@@ -113,6 +113,73 @@ h1{
 }
 .calendar-button{
     position: absolute;
-    left: 100px;
-    top: 12px;
+    right: 23px;
+    top: 28px;
+    float: right;
+    display: block;
+}
+.span-date{
+    left: 10px;
+    position: relative;
+    top: 8px;
+}
+
+.box-container3{
+    width: 85%;
+    float: left;
+    padding-top: 12px;
+    position: relative;
+    display: block;
+    margin-top: 20px;
+}
+.box-container3 label {
+    position: absolute;
+    top: 0px;
+    display: block;
+    left: 22px;
+    background: #161616;
+    padding:0 4px;
+}
+.mot-cle{
+    width: 86%;
+    margin: 0 auto;
+    top: 5px;
+    position: relative;
+    left: -14px;
+    background: transparent;
+    border: none;
+    color:white;
+}
+.icon-info{
+    height: 22px;
+    width: 48px;
+    top: 26px;
+}
+.mot-cle:focus{
+    outline: none;
+}
+.close-button{
+    width: 50px;
+    position: absolute;
+    right: 30px;
+    top: 26px;
+    cursor: pointer;
+}
+.termine{
+    width: 120px;
+    position: absolute;
+    height: 35px;
+    background-color: green;
+    color: black;
+    left: 20px!important;
+}
+.appliquer{
+    margin-left: 10%;
+    width: 80%;
+    height: 35px;
+    background-color: green;
+    color: black;
+    cursor: pointer;
+    position: absolute !important;
+    bottom: 50px;
 }

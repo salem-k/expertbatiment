@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class ListeEvaluationsComponent {
   afficherFiltres = false
   dateDebutFiltre:any
+  dateFinFiltre:any
   evaluations = [
     {
       col1: [
