@@ -1,4 +1,3 @@
-<p>liste-evaluations works!</p>
 <div class="container">
     
             <div class="row table-header1" >
@@ -7,7 +6,7 @@
             </div>
 
             <div class="row table-header2">
-                <h1>Vos èvalutations <sup *ngIf="evaluations" style="font-size: 17px;">({{evaluations.length}})</sup></h1>
+                <h1>Vos èvalutations <sup *ngIf="evaluations" style="font-size: 17px;">({{evaluationsInit.length}})</sup></h1>
                 <button class="filtrer" (click)="filtrer()">
                     <img  class="icon-button" src="assets/icons/sliders2-vertical.png" />
                     Filtrer
@@ -20,10 +19,10 @@
             <div class="row table-header2">
                 <ul class="nav nav-underline">
                     <li class="nav-item">
-                      <a (click)="getPending()" class="nav-link active" aria-current="page" href="#">En cours ({{pendingEvaluations.length}})</a>
+                      <a (click)="getPending()" class="nav-link" [ngClass]="filter=='Pending'?'active':''" aria-current="page" href="#">En cours ({{pendingEvaluations.length}})</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#"  (click)="getPassed()">Passées ({{passedEvaluations.length}})</a>
+                      <a class="nav-link" href="#"  [ngClass]="filter=='Passed'?'active':''" (click)="getPassed()">Passées ({{passedEvaluations.length}})</a>
                     </li>
                   </ul>
             </div>
@@ -61,7 +60,7 @@
 </div>
 
 <div  *ngIf="afficherFiltres" class="bgFiltrer" (click)="filtrer()"></div>
-<div class="filtres row" *ngIf="afficherFiltres">
+<div class="filtres row" style="margin-right:0!important" *ngIf="afficherFiltres">
     <img class="close-button" src="assets/icons/x.png" (click)="filtrer()" />
     <div class="title-filtres">
         <h2>Filtrer</h2>
@@ -83,7 +82,7 @@
                     <div>
                         <input
                             class="form-control"
-                            placeholder="yyyy-mm-dd"
+                            placeholder="yyyy-dd-mm"
                             name="dp"
                             [(ngModel)]="dateDebutFiltre"
                             ngbDatepicker
@@ -117,7 +116,7 @@
                         <img src="assets/icons/calendar.png" class="icon-button calendar-button"  (click)="d1.toggle()" />
                     </div>
                     <span class="span-date">
-                    {{ dateFinFiltre.month }}/{{ dateFinFiltre.day }}/{{ dateDebutFiltre.year }}
+                    {{ dateFinFiltre.month }}/{{ dateFinFiltre.day }}/{{ dateFinFiltre.year }}
                     </span>
                 </div>
             </form>
@@ -129,14 +128,14 @@
             <label class="box-title">Mot clé</label>
             
                 <div class="row">
-                    <input class="mot-cle" />
+                    <input class="mot-cle" [(ngModel)]="motCle" />
                     <img src="assets/icons/info-circle.png" class="icon-button calendar-button icon-info" />
                 </div>
             
         </div>
     </div>
     <div class="row">
-        <button class="appliquer">Appliquer</button>
+        <button (click)="applyFilters()" class="appliquer">Appliquer</button>
     </div>
     
 </div>
