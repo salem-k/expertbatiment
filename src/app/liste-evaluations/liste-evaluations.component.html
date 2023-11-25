@@ -7,7 +7,7 @@
             </div>
 
             <div class="row table-header2">
-                <h1>Vos èvalutations <sup style="font-size: 17px;">(30)</sup></h1>
+                <h1>Vos èvalutations <sup *ngIf="evaluations" style="font-size: 17px;">({{evaluations.length}})</sup></h1>
                 <button class="filtrer" (click)="filtrer()">
                     <img  class="icon-button" src="assets/icons/sliders2-vertical.png" />
                     Filtrer
@@ -20,10 +20,10 @@
             <div class="row table-header2">
                 <ul class="nav nav-underline">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">En cours (16)</a>
+                      <a (click)="getPending()" class="nav-link active" aria-current="page" href="#">En cours ({{pendingEvaluations.length}})</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Passées (5)</a>
+                      <a class="nav-link" href="#"  (click)="getPassed()">Passées ({{passedEvaluations.length}})</a>
                     </li>
                   </ul>
             </div>
@@ -31,25 +31,25 @@
                 <div class="card-body">
                     <table class="table">
                         <tr>
-                            <td>
+                            <td style="width: 23%;">
                                 {{evalutation.col1[0]}}<br>
                                 <span *ngIf="evalutation.col1[1] != 100" class="badge text-bg-secondary">{{evalutation.col1[1]}}%</span>
                                 <span *ngIf="evalutation.col1[1] == 100" class="badge text-bg-success">Complétées</span>
 
                             </td>
-                            <td>
-                                {{evalutation.col2[0]}}<br>
+                            <td style="width: 23%;">
+                                {{formatDate(evalutation.col2[0])}}<br>
                                 {{evalutation.col2[1]}}
                             </td>
-                            <td>
+                            <td style="width: 23%;">
                                 {{evalutation.col3[0]}}<br>
                                 {{evalutation.col3[1]}}
                             </td>
-                            <td>
+                            <td style="width: 23%;">
                                 {{evalutation.col4[0]}}<br>
                                 {{evalutation.col4[1]}}
                             </td>
-                            <td>
+                            <td style="width: 8%;">
                                 <img  class="icon-button eye-fill" src="assets/icons/eye-fill.png" />  
                                 <img  class="icon-button" src="assets/icons/three-dots-vertical.png" />
                             </td>
